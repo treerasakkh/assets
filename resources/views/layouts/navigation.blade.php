@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-logo class="w-8 h-8" />
+                        <x-logo class="size-16" />
                     </a>
                 </div>
 
@@ -94,17 +94,24 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('assets.index')" :active="request()->routeIs('assets.index')">
-                {{ __('ข้อมูลทรัพย์สิน') }}
+            <x-responsive-nav-link :href="route('assets.index')" :active="request()->routeIs('assets.index')" class="flex space-x-1">
+                <x-icons.doc class="size-4" />
+                <span>{{ __('ข้อมูลทรัพย์สิน') }}</span>
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('item-names.index')" :active="request()->routeIs('item-names.index')">
-                {{ __('ชื่อทรัพย์สิน') }}
+            <x-responsive-nav-link :href="route('item-names.index')" :active="request()->routeIs('item-names.index')" class="flex space-x-1">
+                <x-icons.doc class="size-4" />
+                <span>{{ __('ชื่อทรัพย์สิน') }}</span>
+                
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('locations.index')" :active="request()->routeIs('locations.index')">
-                {{ __('สถานที่') }}
+            <x-responsive-nav-link :href="route('locations.index')" :active="request()->routeIs('locations.index')" class="flex space-x-1">
+                <x-icons.location class="size-4" />
+                <span>{{ __('สถานที่') }}</span>
+                
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('responsible-people.index')" :active="request()->routeIs('responsible-people.index')">
-                {{ __('ผู้รับผิดชอบ') }}
+            <x-responsive-nav-link :href="route('responsible-people.index')" :active="request()->routeIs('responsible-people.index')" class="flex space-x-1">
+                <x-icons.user class="size-4" />
+                <span>{{  __('ผู้รับผิดชอบ')  }}</span>
+                
             </x-responsive-nav-link>
         </div>
 

@@ -20,46 +20,69 @@
                     </a>
                 </div>
 
-                <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-indigo-50">
-                        <tr>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                รายการ</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                จำนวน</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                สถานที่ประจำ</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                สถานะ</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider ">
-                                การดำเนินการ</th>
-                        </tr>
-                    </thead>
-                    <tbody class="bg-white divide-y divide-gray-200">
-                        @foreach ($assets as $asset)
+                <div class="w-full overflow-x-auto bg-white rounded-lg shadow-sm">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gradient-to-r from-indigo-50 to-blue-50">
                             <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ $asset->itemName->name }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ $asset->amount }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ $asset->location->name }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-xs text-gray-600">{{ $asset->status }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium flex">
-                                    <a href="{{ route('assets.show', $asset) }}"
-                                        class="text-teal-600 hover:text-teal-900 mr-2"><x-icons.view class="size-4" /></a>
-                                    <a href="{{ route('assets.edit', $asset) }}"
-                                        class="text-yellow-600 hover:text-yellow-900 mr-2"><x-icons.edit class="size-4" /></a>
-                                    @if (auth()->user()->is_admin)
-                                        <form action="{{ route('assets.destroy', $asset) }}" method="POST"
-                                            class="inline">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="text-red-600 hover:text-red-900"><x-icons.bin class="size-4" /></button>
-                                        </form>
-                                    @endif
-                                </td>
+                                <th scope="col" class="sticky left-0 px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider bg-gradient-to-r from-indigo-50 to-blue-50">
+                                    รายการ
+                                </th>
+                                <th scope="col" class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    จำนวน
+                                </th>
+                                <th scope="col" class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    สถานที่ประจำ
+                                </th>
+                                <th scope="col" class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    สถานะ
+                                </th>
+                                <th scope="col" class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    การดำเนินการ
+                                </th>
                             </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            @foreach ($assets as $asset)
+                                <tr class="hover:bg-gray-50 even:bg-gray-50/30">
+                                    <td class="sticky left-0 px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 bg-white even:bg-gray-50/30">
+                                        {{ $asset->itemName->name }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                                        {{ $asset->amount }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                                        {{ $asset->location->name }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                            {{ $asset->status }}
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2 flex">
+                                        <a href="{{ route('assets.show', $asset) }}" 
+                                           class="text-teal-600 hover:text-teal-900 transition-colors duration-200">
+                                            <x-icons.view class="w-4 h-4" />
+                                        </a>
+                                        <a href="{{ route('assets.edit', $asset) }}" 
+                                           class="text-yellow-600 hover:text-yellow-900 transition-colors duration-200">
+                                            <x-icons.edit class="w-4 h-4" />
+                                        </a>
+                                        @if (auth()->user()->is_admin)
+                                            <form action="{{ route('assets.destroy', $asset) }}" method="POST" class="inline">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" 
+                                                        class="text-red-600 hover:text-red-900 transition-colors duration-200">
+                                                    <x-icons.bin class="w-4 h-4" />
+                                                </button>
+                                            </form>
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
