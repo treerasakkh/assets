@@ -99,7 +99,7 @@
                 <span>{{ __('ข้อมูลทรัพย์สิน') }}</span>
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('item-names.index')" :active="request()->routeIs('item-names.index')" class="flex space-x-1">
-                <x-icons.doc class="size-4" />
+                <x-icons.list class="size-4" />
                 <span>{{ __('ชื่อทรัพย์สิน') }}</span>
                 
             </x-responsive-nav-link>
