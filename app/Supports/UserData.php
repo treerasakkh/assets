@@ -2,7 +2,7 @@
 namespace App\Supports;
 
 class UserData{
-    public static function all():array{
+    public static function all():array{ 
         return  [
             ['name' => 'เกศินี รัชอินทร์', 'email' => 'kasinee@kbw.ac.th'],
             ['name' => 'จันทร์ สุพรรณโมกข์', 'email' => 'chan@kbw.ac.th'],
