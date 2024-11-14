@@ -14,11 +14,11 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('assets.index')" :active="request()->routeIs('assets.index')">
                         <x-icons.doc class="size-4" />
-                        {{ __('ทรัพย์สิน') }}
+                        {{ __('ทั้งหมด') }}
                     </x-nav-link>
                     <x-nav-link :href="route('item-names.index')" :active="request()->routeIs('item-names.index')">
                         <x-icons.list class="size-4" />
-                        {{ __('รายชื่อ') }}
+                        {{ __('ประเภท') }}
                     </x-nav-link>
                     <x-nav-link :href="route('locations.index')" :active="request()->routeIs('locations.index')">
                         <x-icons.location class="size-4" />
@@ -96,11 +96,11 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('assets.index')" :active="request()->routeIs('assets.index')" class="flex space-x-1">
                 <x-icons.doc class="size-4" />
-                <span>{{ __('ข้อมูลทรัพย์สิน') }}</span>
+                <span>{{ __('ทั้งหมดnp') }}</span>
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('item-names.index')" :active="request()->routeIs('item-names.index')" class="flex space-x-1">
                 <x-icons.list class="size-4" />
-                <span>{{ __('ชื่อทรัพย์สิน') }}</span>
+                <span>{{ __('ประเภท') }}</span>
                 
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('locations.index')" :active="request()->routeIs('locations.index')" class="flex space-x-1">
